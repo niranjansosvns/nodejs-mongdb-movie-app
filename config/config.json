@@ -1,0 +1,21 @@
+{
+    "development": {
+        "host": "localhost",
+        "port": 3000,
+        "db": {
+            "host": "localhost",
+            "port": 27017,
+            "dbName": "nodejs-movie-app"
+        }
+    },
+
+    "testing": {
+        "host": "localhost",
+        "port": 3030,
+        "db": {
+            "host": "localhost",
+            "port": 27000,
+            "dbName": "test-db"
+        }
+    }
+}

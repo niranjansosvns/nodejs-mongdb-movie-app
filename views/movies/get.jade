@@ -1,0 +1,34 @@
+extends ../layout
+
+block content
+    div
+        a.btn.btn-primary.fixed-small-button(href="/movies/#{movie.imdbId}/edit") Edit
+        |&nbsp;&nbsp;
+        a.btn.btn-danger.fixed-small-button(href="/movies/#{movie.imdbId}/remove") Remove
+        br
+        br
+    .panel.panel-default
+        .panel-heading
+            b #{movie.title} (#{movie.year})
+        .panel-body
+            .row
+                .col-md-4.col-sm-4.col-xs-12.text-center
+                    img(src="#{movie.posterUrl}", title="#{movie.title} (#{movie.year})")
+                .col-md-4.col-sm-6.col-xs-12.text-center.col-centered
+                    .movie-detail
+                        b IMDB 
+                        div
+                            a(href="http://www.imdb.com/title/#{movie.imdbId}", target="_blank") #{movie.imdbId}
+                    .movie-detail
+                        b Duration 
+                        div
+                            |#{movie.duration} min
+                    .movie-detail
+                        b Description
+                        div
+                            |#{movie.description}
+
+                    .movie-detail
+                        b Director 
+                        div
+                            |#{movie.director}

@@ -1,0 +1,24 @@
+{
+    "/movies": {
+        "GET": "index"
+    },
+
+    "/movies/add": {
+        "GET": "viewAddForm",
+        "POST": "add"
+    },
+
+    "/movies/:id": {
+        "GET": "get"
+    },
+
+    "/movies/:id/edit": {
+        "GET": "viewEditForm",
+        "POST": "update"
+    },
+
+    "/movies/:id/remove": {
+        "GET": "viewRemoveForm",
+        "POST": "remove"
+    }
+}

@@ -1,0 +1,26 @@
+extends ../layout
+
+block content
+    if success
+        div.alert.alert-success
+            div.text-center #{success}
+        br
+        .text-center
+            a.btn.btn-primary(href="/movies") Back to Movies
+    else if error
+        div.alert.alert-danger
+            div.text-center #{error}
+
+    else
+        div.panel.panel-default
+            div.panel-heading
+                b #{movie.title} (#{movie.year})
+            div.panel-body
+                form#remove-movie-form(action="/movies/#{movie.imdbId}/remove", method="post")
+                    div.row
+                        div.col-md-4.col-sm-4.col-xs-12.text-center
+                            img(src="#{movie.posterUrl}", title="#{movie.title} (#{movie.year})")
+                        div.col-md-4.col-sm-6.col-xs-12.text-center.col-centered
+                            |Remove this movie?
+                            div
+                                input#submit.btn.btn-primary.submit-button(value="Yes", type="submit")

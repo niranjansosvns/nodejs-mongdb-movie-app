@@ -1,0 +1,28 @@
+doctype html
+html
+    head
+        // bootstrap css
+        link(href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css", rel="stylesheet")
+        
+        // custom app style
+        link(href="/css/style.css", rel="stylesheet")
+
+        meta(name="viewport", content="width=device-width, initial-scale=1, maximum-scale=1")
+
+        title 
+            | Nodejs Movie App 
+            if subTitle 
+                | | #{subTitle}
+
+    body
+        nav.navbar.navbar-inverse.navbar-fixed-top
+            div.container
+                div.navbar-header
+                    a.navbar-brand(href="/")
+                        | Nodejs Movie App
+        div.content
+            div.container
+                block content
+
+        // bootstrapjs
+        script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js")

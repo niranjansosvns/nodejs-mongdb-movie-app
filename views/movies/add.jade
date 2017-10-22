@@ -1,0 +1,50 @@
+extends ../layout
+
+block content
+    .panel.panel-default.col-md-8.col-sm-10.col-xs-12
+        .panel-heading
+            b Add A New Movie
+        .panel-body
+            if error
+                div.alert.alert-danger
+                    div.text-center #{error}
+            else if success
+                div.alert.alert-success
+                    div.text-center #{success}
+            form#add-movie-form(action="/movies/add", method="post")
+                .form-group
+                    .row
+                        .col-md-12.col-sm-12.col-xs-12
+                            input#title.form-control(name="title", type="text", placeholder="Title")
+
+                    .row
+                        .col-md-5.col-sm-5.col-xs-12
+                            input#imdbId.form-control(name="imdbId", type="text", placeholder="IMDB ID")
+
+                        .col-md-4.col-sm-4.col-xs-6
+                            .input-group
+                                input#duration.form-control(name="duration", type="text", placeholder="Duration")
+                                span.input-group-addon min
+
+                        .col-md-3.col-sm-3.col-xs-6
+                            - recentYear = parseInt(new Date().getFullYear())
+                            select#year.form-control(name="year")
+                                option(selected="selected", style="display: none") Year
+                                - for (var i = recentYear; i >= 1900; i--) {
+                                    option(value="#{i}") #{i}
+                                - }
+
+                    .row
+                        .col-md-12.col-sm-12.col-xs-12
+                            textarea#description.form-control(name="description", placeholder="Description")
+
+                    .row
+                        .col-md-5.col-sm-5.col-xs-12
+                            input#director.form-control(name="director", type="text", placeholder="Director")
+                        .col-md-7.col-sm-7.col-xs-12
+                            input#imageUrl.form-control(name="posterUrl", type="text", placeholder="Poster URL")
+
+                    .row
+                        .col-md-3.col-sm-3.col-xs-12.submit-button
+                            input#submit.btn.btn-primary.form-control(value="Add", type="submit")
+

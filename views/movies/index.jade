@@ -1,0 +1,23 @@
+extends ../layout
+
+block content
+    div
+        .text-center
+            a.btn.btn-primary(href="/movies/add") Add New Movie
+        br
+        br
+
+        #movies
+            if message
+                h4.text-center #{message}
+            else
+                .row
+                    each movie in movies
+                        .col-md-3.col-sm-4.col-xs-12
+                            .movie.text-center
+                                .movie-poster
+                                    img.col-md-12.col-sm-12.col-xs-6.col-centered(src="#{movie.posterUrl}")
+                                .movie-link
+                                    a(href="/movies/#{movie.imdbId}")
+                                        |#{movie.title} (#{movie.year})
+
